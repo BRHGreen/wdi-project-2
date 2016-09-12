@@ -20,9 +20,9 @@ userSchema
   .path('passwordHash')
   .validate(validatePasswordHash);
 
-userSchema
-  .path('email')
-  .validate(validateEmail);
+// userSchema
+//   .path('email')
+//   .validate(validateEmail);
 
 userSchema.methods.validatePassword =
 validatePassword;
@@ -68,5 +68,6 @@ function validateEmail(email) {
 }
 
 function validatePassword(password) {
-  return bcrypt.compareSync(password, this.passwordhash);
+  console.log(password);
+  return bcrypt.compareSync(password, this.passwordHash);
 }
