@@ -1,0 +1,21 @@
+{
+  "name": "restaurants-main",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "BRHGreen <benedictgreen@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/BRHGreen/wdi-project-2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "bootstrap": "v4.0.0-alpha.2"
+  }
+}
