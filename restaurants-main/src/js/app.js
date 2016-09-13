@@ -30,7 +30,7 @@ App.loggedOutState = function(){
 };
 
 App.register = function() {
-  event.preventDefault();
+  if (event) event.preventDefault();
   this.$main.html(`
     <h2>Register</h2>
     <form method="post" action="/register">
@@ -59,10 +59,10 @@ App.login = function() {
     <h2>Login</h2>
       <form method="post" action="/login">
         <div class='form-group'>
-          <input type="email" name="email" placeholder="Email">
+          <input class="form-control" type="email" name="email" placeholder="Email">
         </div>
         <div class='form-group'>
-          <input class= 'form-control' type="password" name="password" placeholder="Password">
+          <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
         <input class='btn btn-primary' type="submit"  value="Login">
       </form>
@@ -107,7 +107,7 @@ App.handleForm = function(){
 
   let url = `${App.apiUrl}${$(this).attr('action')}`;
   let method = $(this).attr('method');
-  let data   = $(this).serilaize();
+  let data   = $(this).serialize();
 
   return App.ajaxRequest(url, method, data, (data) => {
     if (data.token)
@@ -155,6 +155,7 @@ $(App.init.bind(App));
 const googleMap = googleMap || {};
 
 googleMap.mapSetup = function() {
+  $("main").append("<div id='map-canvas'></div>");
   let canvas = document.getElementById('map-canvas');
   let mapOptions = {
     zoom: 12,
