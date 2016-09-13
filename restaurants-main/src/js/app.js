@@ -6,6 +6,7 @@ App.init = function() {
 
   $('.register').on('click', this.register.bind(this));
   $('.login').on('click', this.login.bind(this));
+  $('.map').on('click', this.mapSetup.bind(this));
   $('.logout').on('click', this.logout.bind(this));
   $('.usersIndex').on('click', this.usersIndex.bind(this));
   this.$main.on('submit', 'form', this.handleForm);
@@ -146,16 +147,10 @@ App.removeToken = function(){
   return window.localStorage.clear();
 };
 
-$(App.init.bind(App));
+App.mapSetup = function() {
+  console.log("Setting up map init");
 
-
-
-
-
-const googleMap = googleMap || {};
-
-googleMap.mapSetup = function() {
-  $("main").append("<div id='map-canvas'></div>");
+  $("main").html("<div id='map-canvas'></div>");
   let canvas = document.getElementById('map-canvas');
   let mapOptions = {
     zoom: 12,
@@ -165,8 +160,4 @@ googleMap.mapSetup = function() {
   this.map = new google.maps.Map(canvas, mapOptions);
 };
 
-$(googleMap.mapSetup.bind(googleMap));
-
-$('#login').on('click', function() {
-  console.log('yo');
-});
+$(App.init.bind(App));
