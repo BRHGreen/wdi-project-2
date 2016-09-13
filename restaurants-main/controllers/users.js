@@ -24,10 +24,10 @@ function usersShow(req, res) {
 }
 
 function usersUpdate (req, res) {
-  user.findByIdAndUpdate(req.params.id, req.body.user, (err, users) => {
+  user.findByIdAndUpdate(req.params.id, req.body.user, { new: true }, (err, users) => {
     if (err) return res.status(500).json({ message: 'Something went wrong'});
     if (!user) return res.status(404).json ({ message: 'User not found' });
-    return res.status(204).send();
+    return res.status(200).json({ user });
   });
 }
 

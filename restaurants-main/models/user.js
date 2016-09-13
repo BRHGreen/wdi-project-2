@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const validator = require('validator');
 
 const userSchema  = new mongoose.Schema ({
-  username: { type: String, trim: true, required: true },
+  username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
   passwordHash: { type: String, required: true}
 });
@@ -68,6 +68,5 @@ function validateEmail(email) {
 }
 
 function validatePassword(password) {
-  console.log(password);
   return bcrypt.compareSync(password, this.passwordHash);
 }
