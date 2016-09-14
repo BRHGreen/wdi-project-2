@@ -6,10 +6,10 @@ const config     = require("../config/config");
 const Restaurant = require("../models/restaurant");
 
 // Building the query
-const q          = encodeURIComponent("vegetarian");
+const q          = encodeURIComponent("vegan");
 const lat        = 51.5287368;
 const lng        = -0.3811034;
-const radius     = 10000;
+const radius     = 20000;
 const count      = 100;
 let start        = 0;
 let uri          = `https://developers.zomato.com/api/v2.1/search?q=${q}&count=${count}&lat=${lat}&lon=${lng}&radius=${radius}&start=${start}`;
@@ -34,17 +34,16 @@ return rp(options)
     let json = JSON.parse(data);
     if (json.restaurants.length === 0) return;
 
-<a href="http://google.com/" target="_blank">blah</a>
-
     // A way of "collecting" promises in an array and waiting until they are all furfilled
     return Bluebird.map(json.restaurants, (result) => {
-      let restaurantData   = {};
-      restaurantData.name  = result.restaurant.name;
-      restaurantData.url  = result.restaurant.url;
+      let restaurantData      = {};
+      restaurantData.name     = result.restaurant.name;
+      restaurantData.url      = result.restaurant.url;
 
       if (result.restaurant.location) {
         restaurantData.lat   = result.restaurant.location.latitude;
         restaurantData.lng   = result.restaurant.location.longitude;
+        restaurantData.address  = result.restaurant.location.address;
       }
 
       restaurantData.image = result.restaurant.thumb;

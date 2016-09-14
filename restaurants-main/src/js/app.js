@@ -23,7 +23,7 @@ App.init = function() {
 App.loggedInState = function(){
   $('.loggedOut').hide();
   $('.loggedIn').show();
-  this.usersIndex();
+  this.mapSetup();
 };
 
 App.loggedOutState = function(){
@@ -160,6 +160,7 @@ App.addInfoWindowForRestaurant = function(restaurant, marker) {
       content:`<div>
                 <div height=150 width=150><img src="${restaurant.image}" width=100%></div>
                 <h4>${restaurant.name}</h4>
+                <p>${restaurant.address}</p>
                 <a href="${restaurant.url}" target="_blank">Website</a>
                </div>`
 
