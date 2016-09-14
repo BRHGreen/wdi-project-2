@@ -1,12 +1,12 @@
 const Restaurant = require('../models/restaurant');
 
-function restaurantIndex(req, res){
-  Restaurant.find((err, restaurant) => {
-    if (err) return res.status(500).send();
-    return res.status(200).json({ restaurants: restaurants});
+function restaurantsIndex(req, res) {
+  Restaurant.find({}, (err, restaurants) => {
+    if (err) return res.status(500).json({ message: "Something's gone wrong"});
+    return res.status(200).json({ restaurants });
   });
 }
 
 module.exports = {
-  index: restaurantIndex
+  index: restaurantsIndex
 };

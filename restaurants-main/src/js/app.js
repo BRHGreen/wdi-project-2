@@ -147,6 +147,55 @@ App.removeToken = function(){
   return window.localStorage.clear();
 };
 
+//**********map***************:
+
+App.addInfoWindowForRestaurant = function(restaurant, marker) {
+  google.maps.event.addListener(marker, 'click', () => {
+    if (typeof this.infowindow != "undefined") this.infowindow.close();
+
+    this.infowindow = new
+    google.maps.InfoWindow({
+      content:`<div>
+                <div height=150 width=150><img src="${restaurant.image}" width=100%></div>
+                <h4>${restaurant.name}</h4>
+                <p></p>
+               </div>`
+    });
+    this.infowindow.open(this.map, marker);
+    this.map.setCenter(marker.getPosition());
+  });
+};
+
+const icon = {
+  url: "./images/green_v.png",
+  scaledSize: new google.maps.Size(30, 30),
+  origin: new google.maps.Point(0, 0),
+  anchor: new google.maps.Point(0, 0)
+};
+
+App.createMarkerForRestaurant = function(restaurant) {
+  // console.log(restaurant)
+  let latlng = new google.maps.LatLng(restaurant.lat, restaurant.lng);
+  // console.log(latlng)
+  let marker = new google.maps.Marker({
+    position: latlng,
+    map: this.map,
+    icon: icon
+  });
+  this.addInfoWindowForRestaurant(restaurant, marker);
+};
+
+App.loopThroughRestaurants = (data) => {
+  $.each(data.restaurants, (index, restaurant) => {
+      App.createMarkerForRestaurant(restaurant);
+  });
+};
+
+App.getRestaurants = function(){
+  let url = "http://localhost:3000/api/restaurants";
+  App.ajaxRequest(url, "GET", null, App.loopThroughRestaurants);
+};
+
 App.mapSetup = function() {
   console.log("Setting up map init");
 
@@ -158,6 +207,8 @@ App.mapSetup = function() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   this.map = new google.maps.Map(canvas, mapOptions);
+  this.getRestaurants();
 };
+
 
 $(App.init.bind(App));

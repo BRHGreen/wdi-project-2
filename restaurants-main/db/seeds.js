@@ -6,11 +6,11 @@ const config     = require("../config/config");
 const Restaurant = require("../models/restaurant");
 
 // Building the query
-const q          = encodeURIComponent("Vegan London");
+const q          = encodeURIComponent("vegan");
 const lat        = 51.5287368;
 const lng        = -0.3811034;
-const radius     = 2500;
-const count      = 20;
+const radius     = 5000;
+const count      = 100;
 let start        = 0;
 let uri          = `https://developers.zomato.com/api/v2.1/search?q=${q}&count=${count}&lat=${lat}&lng=${lng}&radius=${radius}&start=${start}`;
 
@@ -55,6 +55,7 @@ return rp(options)
 
     // Let us know what we did
     data.forEach(restaurant => console.log(`${restaurant.name} was saved`));
+    data.forEach(restaurant => Restaurant.create(restaurant));
 
     // Make a new request increasing the starting number that we look from
     start += 20;
