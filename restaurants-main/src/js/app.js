@@ -1,3 +1,5 @@
+//registered user: qwerty, qwerty@qwerty.com, pw: qwerty
+
 const App = App || {};
 
 App.init = function() {
@@ -158,7 +160,7 @@ App.addInfoWindowForRestaurant = function(restaurant, marker) {
       content:`<div>
                 <div height=150 width=150><img src="${restaurant.image}" width=100%></div>
                 <h4>${restaurant.name}</h4>
-                <p></p>
+                <p>Website: ${restaurant.url}</p>
                </div>`
     });
     this.infowindow.open(this.map, marker);
