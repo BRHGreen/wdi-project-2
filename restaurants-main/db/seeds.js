@@ -7,8 +7,8 @@ const Restaurant = require("../models/restaurant");
 
 // Building the query
 const q          = encodeURIComponent("vegan");
-const lat        = 51.5287368;
-const lng        = -0.3811034;
+const lat        = 51.5287336;
+const lng        = -0.3824771;
 const radius     = 20000;
 const count      = 100;
 let start        = 0;

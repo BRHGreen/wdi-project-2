@@ -8,7 +8,6 @@ App.init = function() {
 
   $('.register').on('click', this.register.bind(this));
   $('.login').on('click', this.login.bind(this));
-  $('.map').on('click', this.mapSetup.bind(this));
   $('.logout').on('click', this.logout.bind(this));
   $('.usersIndex').on('click', this.usersIndex.bind(this));
   this.$main.on('submit', 'form', this.handleForm);
@@ -29,7 +28,7 @@ App.loggedInState = function(){
 App.loggedOutState = function(){
   $('.loggedOut').show();
   $('.loggedIn').hide();
-  this.register();
+  this.login();
 };
 
 App.register = function() {
@@ -51,6 +50,8 @@ App.register = function() {
         <input class='form-control' type="password" name="user[passwordConfirmation]"
         placeholder="Password Confirmation">
       </div>
+      <div class='form-group'>
+        <input class='form-control' type="text" name="user[profileText]" placeholder="Write a few words about yourself">
         <input class='btn btn-primary' type="submit" value="Register">
     </form>
     `);
@@ -97,7 +98,7 @@ App.usersIndex = function(){
           alt='Card image cap'>
           <div class='card-block'>
             <h4 class='card-title'>${user.username}</h4>
-            <p class='card-text'>what? blah. OK.</p>
+            <p class='card-text'>${user.profileText}</p>
             <p class='card-text'><small calss='text-muted'>eh?</small></p>
           </div>
         </div>`);
