@@ -160,8 +160,10 @@ App.addInfoWindowForRestaurant = function(restaurant, marker) {
       content:`<div>
                 <div height=150 width=150><img src="${restaurant.image}" width=100%></div>
                 <h4>${restaurant.name}</h4>
-                <p>Website: ${restaurant.url}</p>
+                <a href="${restaurant.url}" target="_blank">Website</a>
                </div>`
+
+// <a href="http://google.com/" target="_blank">blah</a>
     });
     this.infowindow.open(this.map, marker);
     this.map.setCenter(marker.getPosition());
