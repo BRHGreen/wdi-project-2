@@ -59,7 +59,7 @@ App.register = function() {
       </div>
       <div class='form-group'>
         <input class='form-control' type="text" name="user[profileText]" placeholder="Write a few words about yourself">
-        <input class='btn btn-primary' type="submit" value="Register">
+        <input id="register" class='btn btn-primary' type="submit" value="Register">
     </form>
     `);
 };
