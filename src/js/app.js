@@ -59,7 +59,7 @@ App.register = function() {
       </div>
       <div class='form-group'>
         <input class='form-control' type="text" name="user[profileText]" placeholder="Write a few words about yourself">
-        <input class='btn btn-primary' type="submit" value="Register">
+        <input id="register" class='btn btn-primary' type="submit" value="Register">
     </form>
     `);
 };
@@ -79,7 +79,7 @@ App.login = function() {
         <div class='form-group'>
           <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
-        <input class='btn btn-primary' type="submit"  value="Login">
+        <input id='login' class='btn btn-primary' type="submit"  value="Login">
       </form>
     `);
 };
@@ -88,40 +88,11 @@ App.logout = function() {
   event.preventDefault();
   this.removeToken();
   this.loggedOutState();
+  // this.$main.html(`
+  //   <div id='logged-out'></div>
+  //   `);
 };
 
-
-
-
-
-// App.usersIndex = function(){
-//   if (event) event.preventDefault();
-//   let url = `${this.apiUrl}/users`;
-//   console.log(`this: ${this}`);
-//   return this.ajaxRequest(url, 'get', null, (data) => {
-//     this.$main.html(`
-//       <div class='card-deck-wrapper'>
-//         <div class='card-deck'>
-//         </div>
-//       </div>
-//     `);
-//     let $container = this.$main.find('.card-deck');
-//     $.each(data.users, (i, user) => {
-//       console.log(data.useres);
-//       $container.append(`
-//         <div id='${user.username}' class='card col-md-4'>
-//           <img clas='card-img-top'
-//           src='http://fillmurray.com/300/300'
-//           alt='Card image cap'>
-//           <div class='card-block'>
-//             <h4 class='card-title'>${user.username}</h4>
-//             <p class='card-text'>${user.profileText}</p>
-//             <p class='card-text'><small calss='text-muted'>eh?</small></p>
-//           </div>
-//         </div>`);
-//     });
-//   });
-// };
 
 App.handleForm = function(){
   event.preventDefault();
@@ -176,13 +147,10 @@ App.addInfoWindowForRestaurant = function(restaurant, marker) {
     this.infowindow = new
     google.maps.InfoWindow({
       content:`<div class='info-window'>
-                <div class='food-div'><img class='food-pic' src="${restaurant.image}"></div>
                 <h4>${restaurant.name}</h4>
                 <p>${restaurant.address}</p>
                 <a href="${restaurant.url}" target="_blank">Website</a>
                </div>`
-
-// <a href="http://google.com/" target="_blank">blah</a>
     });
     this.infowindow.open(this.map, marker);
     this.map.setCenter(marker.getPosition());
@@ -227,13 +195,12 @@ App.mapSetup = function() {
   let mapOptions = {
     zoom: 12,
     center: new google.maps.LatLng(51.506178,-0.088369),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles:
+    [{"featureType":"administrative","elementType":"all","stylers":[{"hue":"#ff0000"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"color":"#b3b3b3"}]},{"featureType":"administrative","elementType":"labels","stylers":[{"hue":"#ff0000"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#454545"}]},{"featureType":"administrative","elementType":"labels.text.stroke","stylers":[{"hue":"#ff0000"},{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f0f0f0"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"},{"color":"#ffffff"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#9cc1dc"},{"visibility":"on"}]}]
   };
   this.map = new google.maps.Map(canvas, mapOptions);
   this.getRestaurants();
 };
-
-
-
 
 $(App.init.bind(App));
