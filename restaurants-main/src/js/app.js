@@ -19,6 +19,12 @@ App.init = function() {
   }
 };
 
+App.usersIndex = function(){
+  console.log('yeah');
+};
+
+
+
 App.loggedInState = function(){
   $('.loggedOut').hide();
   $('.loggedIn').show();
@@ -30,6 +36,7 @@ App.loggedOutState = function(){
   $('.loggedIn').hide();
   this.login();
 };
+
 
 App.register = function() {
   if (event) event.preventDefault();
@@ -57,6 +64,10 @@ App.register = function() {
     `);
 };
 
+// const currentUser = {
+//   name: $('')
+// };
+
 App.login = function() {
   event.preventDefault();
   this.$main.html(`
@@ -79,32 +90,38 @@ App.logout = function() {
   this.loggedOutState();
 };
 
-App.usersIndex = function(){
-  if (event) event.preventDefault();
-  let url = `${this.apiUrl}/users`;
-  return this.ajaxRequest(url, 'get', null, (data) => {
-    this.$main.html(`
-      <div class='card-deck-wrapper'>
-        <div class='card-deck'>
-        </div>
-      </div>
-    `);
-    let $container = this.$main.find('.card-deck');
-    $.each(data.users, (i, user) => {
-      $container.append(`
-        <div class='card col-md-4'>
-          <img clas='card-img-top'
-          src='http://fillmurray.com/300/300'
-          alt='Card image cap'>
-          <div class='card-block'>
-            <h4 class='card-title'>${user.username}</h4>
-            <p class='card-text'>${user.profileText}</p>
-            <p class='card-text'><small calss='text-muted'>eh?</small></p>
-          </div>
-        </div>`);
-    });
-  });
-};
+
+
+
+
+// App.usersIndex = function(){
+//   if (event) event.preventDefault();
+//   let url = `${this.apiUrl}/users`;
+//   console.log(`this: ${this}`);
+//   return this.ajaxRequest(url, 'get', null, (data) => {
+//     this.$main.html(`
+//       <div class='card-deck-wrapper'>
+//         <div class='card-deck'>
+//         </div>
+//       </div>
+//     `);
+//     let $container = this.$main.find('.card-deck');
+//     $.each(data.users, (i, user) => {
+//       console.log(data.useres);
+//       $container.append(`
+//         <div id='${user.username}' class='card col-md-4'>
+//           <img clas='card-img-top'
+//           src='http://fillmurray.com/300/300'
+//           alt='Card image cap'>
+//           <div class='card-block'>
+//             <h4 class='card-title'>${user.username}</h4>
+//             <p class='card-text'>${user.profileText}</p>
+//             <p class='card-text'><small calss='text-muted'>eh?</small></p>
+//           </div>
+//         </div>`);
+//     });
+//   });
+// };
 
 App.handleForm = function(){
   event.preventDefault();
@@ -158,8 +175,8 @@ App.addInfoWindowForRestaurant = function(restaurant, marker) {
 
     this.infowindow = new
     google.maps.InfoWindow({
-      content:`<div>
-                <div height=150 width=150><img src="${restaurant.image}" width=100%></div>
+      content:`<div class='info-window'>
+                <div class='food-div'><img class='food-pic' src="${restaurant.image}"></div>
                 <h4>${restaurant.name}</h4>
                 <p>${restaurant.address}</p>
                 <a href="${restaurant.url}" target="_blank">Website</a>
@@ -215,6 +232,8 @@ App.mapSetup = function() {
   this.map = new google.maps.Map(canvas, mapOptions);
   this.getRestaurants();
 };
+
+
 
 
 $(App.init.bind(App));
