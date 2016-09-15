@@ -12,10 +12,6 @@ body {
   float: right;
 }
 
-a {
-  background: red;
-}
-
 nav button {
   float: right;
 }
@@ -24,6 +20,10 @@ nav button {
   width: 50%;
   margin: 0 auto;
   float: left;
+}
+
+span {
+  font-size: 3em;
 }
 
 @media(max-width:34em) {
@@ -40,7 +40,6 @@ nav button {
 .info-window {
   height: 200px;
   width: 250px;
-  background: red;
 }
 
 .food-div {
