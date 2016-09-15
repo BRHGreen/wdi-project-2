@@ -2,10 +2,12 @@
 
 body {
   font-family: 'Inconsolata', monospace;
+  background: rgba(68, 76, 91, 0.2);
 }
 
 .navbar {
   margin: 0 0 30px;
+  background: #FFFBE8;
 }
 
 .nav {
@@ -21,7 +23,7 @@ nav button {
 }
 
 ul {
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 span {
@@ -37,6 +39,7 @@ span {
 #map-canvas {
     width: 100%;
     height: 100vh;
+    border: 5px, solid, #1C1807;
   }
 
 .info-window {

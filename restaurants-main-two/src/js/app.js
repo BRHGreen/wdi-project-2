@@ -88,40 +88,11 @@ App.logout = function() {
   event.preventDefault();
   this.removeToken();
   this.loggedOutState();
+  // this.$main.html(`
+  //   <div id='logged-out'></div>
+  //   `);
 };
 
-
-
-
-
-// App.usersIndex = function(){
-//   if (event) event.preventDefault();
-//   let url = `${this.apiUrl}/users`;
-//   console.log(`this: ${this}`);
-//   return this.ajaxRequest(url, 'get', null, (data) => {
-//     this.$main.html(`
-//       <div class='card-deck-wrapper'>
-//         <div class='card-deck'>
-//         </div>
-//       </div>
-//     `);
-//     let $container = this.$main.find('.card-deck');
-//     $.each(data.users, (i, user) => {
-//       console.log(data.useres);
-//       $container.append(`
-//         <div id='${user.username}' class='card col-md-4'>
-//           <img clas='card-img-top'
-//           src='http://fillmurray.com/300/300'
-//           alt='Card image cap'>
-//           <div class='card-block'>
-//             <h4 class='card-title'>${user.username}</h4>
-//             <p class='card-text'>${user.profileText}</p>
-//             <p class='card-text'><small calss='text-muted'>eh?</small></p>
-//           </div>
-//         </div>`);
-//     });
-//   });
-// };
 
 App.handleForm = function(){
   event.preventDefault();
@@ -181,8 +152,6 @@ App.addInfoWindowForRestaurant = function(restaurant, marker) {
                 <p>${restaurant.address}</p>
                 <a href="${restaurant.url}" target="_blank">Website</a>
                </div>`
-
-// <a href="http://google.com/" target="_blank">blah</a>
     });
     this.infowindow.open(this.map, marker);
     this.map.setCenter(marker.getPosition());
