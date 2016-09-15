@@ -233,7 +233,4 @@ App.mapSetup = function() {
   this.getRestaurants();
 };
 
-
-
-
 $(App.init.bind(App));

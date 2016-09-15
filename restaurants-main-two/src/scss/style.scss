@@ -1,5 +1,9 @@
 @import "bower";
 
+body {
+  font-family: 'Inconsolata', monospace;
+}
+
 .navbar {
   margin: 0 0 30px;
 }
@@ -8,28 +12,35 @@
   float: right;
 }
 
+a {
+  background: red;
+}
+
 nav button {
   float: right;
 }
 
-#map-canvas {
-  width: 100%;
-  height: 100vh;
+.title {
+  width: 50%;
+  margin: 0 auto;
+  float: left;
 }
 
 @media(max-width:34em) {
   nav {
     position: relative;
   }
-
-  .nav {
-    width: 100%;
-  }
 }
+
+#map-canvas {
+    width: 100%;
+    height: 100vh;
+  }
 
 .info-window {
   height: 200px;
   width: 250px;
+  background: red;
 }
 
 .food-div {
