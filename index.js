@@ -4,11 +4,13 @@ const bodyParser = require("body-parser");
 const cors       = require("cors");
 const mongoose   = require("mongoose");
 const expressJWT = require("express-jwt");
-
 const app        = express();
 const config     = require('./config/config');
 const apiRouter     = require('./config/apiRoutes');
 const webRouter  = require('./config/webRoutes');
+
+// for testing
+const enviroment = app.get('env');
 
 mongoose.connect(config.db);
 
@@ -36,3 +38,6 @@ app.use('/', webRouter);
 app.use('/api', apiRouter);
 
 app.listen(config.port, () => console.log(`Express started on port ${config.port}`));
+
+//for testing
+module.exports = app;
