@@ -18,7 +18,7 @@ I made use of Bower to manage front end packages, NPM to manage back end package
 These steps are required in order to run the application:
 -  Gulp and Node must be installed
 - Populate the database by running the following command in the root directory of the application using the terminal: 'node db/seeds.js'
-- Install all the relevant NPM packages and Bower packages by 'npm i' and 'bower i' in the root directory of the application using the terminal
+- Install all the relevant NPM packages and Bower running the commands 'npm i' and 'bower i' in the root directory of the application using the terminal
 - Go to 'http://localhost:3000' in your browser to view the site.
 
 #Credits
