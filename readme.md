@@ -12,7 +12,7 @@ This website requires the user to have a profile and for them to be logged in in
 The API used to obtain data for the restaurants is Zomato (the API and documentation for which can be found here: https://developers.zomato.com/documentation#/)
 This application also uses the Google Maps API (the API and documentation for which can be found here: www.google.com/GoogleMapsAPI‎).
 **(mostly) Vegan Restaurants in London** requires user authentication for which is uses JWT.
-I made use of Bower to manage front end packages, NPM to manage back end packages, Babel to minify and convert SCSS and ES6 into CSS and ES5 (respectively) and Gulp as my task runner.
+I made use of Bower to manage front end packages, NPM to manage back end packages, Babel to minify and transpile SCSS and ES6 and Gulp as my task runner.
 
 #Getting started
 These steps are required in order to run the application:
