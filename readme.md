@@ -39,9 +39,9 @@ These steps are required in order to run the application:
 4. Go to [http://localhost:3000] (http://localhost:3000) in your browser to view the site.
 
 ###Credits
-- The styling for my map was taken from Snazzy Maps [https://snazzymaps.com/]
+- The styling for my map was taken from [Snazzy Maps] (https://snazzymaps.com/)
 - The green "v" marker on my map was taken from [Buenavida Health] (buenavidahealth.co.uk)
-- The font used throughout the site was taken from [Google Fonts]. (https://fonts.google.com/)
+- The font used throughout the site was taken from [Google Fonts] (https://fonts.google.com/)
 - [The Google Map API] (https://developers.google.com/maps/)
 - [Zomato API] (https://developers.zomato.com/api)
 - GA instructors Alex Chin and Rane Gowan
