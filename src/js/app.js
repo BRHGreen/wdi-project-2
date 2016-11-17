@@ -96,8 +96,7 @@ App.logout = function() {
 App.handleForm = function(){
   event.preventDefault();
 
-  let url = `${App.apiUrl}/${$(this).attr('action')}`;
-  console.log(url);
+  let url = `${App.apiUrl}${$(this).attr('action')}`;
   let method = $(this).attr('method');
   let data   = $(this).serialize();
 
