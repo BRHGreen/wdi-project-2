@@ -69,7 +69,6 @@ App.register = function() {
 // };
 
 App.login = function() {
-  event.preventDefault();
   this.$main.html(`
     <h2>Login</h2>
       <form method="post" action="/login">
