@@ -1,4 +1,4 @@
-//registered user: qwerty, qwerty@qwerty.com, pw: qwertyy
+//registered user: qwerty, qwerty@qwerty.com, pw: qwerty
 
 const App = App || {};
 
