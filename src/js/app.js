@@ -182,7 +182,7 @@ App.loopThroughRestaurants = (data) => {
 };
 
 App.getRestaurants = function(){
-  let url = "http://localhost:3000/api/restaurants";
+  let url =  `${App.apiUrl}/restaurants`;
   App.ajaxRequest(url, "GET", null, App.loopThroughRestaurants);
 };
 
