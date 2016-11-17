@@ -3,7 +3,7 @@
 const App = App || {};
 
 App.init = function() {
-  this.apiUrl = 'http://localhost:3000/api';
+  this.apiUrl = window.location.origin + "api";
   this.$main = $('main');
 
   $('.register').on('click', this.register.bind(this));
