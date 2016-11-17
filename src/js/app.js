@@ -4,6 +4,8 @@ const App = App || {};
 
 App.init = function() {
   this.apiUrl = window.location.origin + "/api";
+
+  console.log(this.apiUrl);
   this.$main = $('main');
 
   $('.register').on('click', this.register.bind(this));
