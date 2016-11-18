@@ -8,6 +8,8 @@ This was my second project for WDI London
 This app was built over six days and was the second of four projects I built during my time on the Web Development Immersive course at General Assembly, London.
 The requirements were to build an authenticated Express application with a Mongo backend and to use the Google Maps api.
 I fulfilled these criteria and in addition opted to use data from a restaurant API called Zomato.
+A hosted version of **Vegan Restaurants in London** can be found [here] (https://vegan-london.herokuapp.com)
+The code can be viewed [here] (https://github.com/BRHGreen/wdi-project-2)
 
 ###The App
 **Vegan Restaurants in London** is an online app designed to show the location of and details for a range of different vegan restaurants in London.
